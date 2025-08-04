@@ -1,0 +1,6 @@
+minilibx/
+.DS_Store
+Makefile
+*.o
+.vscode/
+cub3D

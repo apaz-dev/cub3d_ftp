@@ -1,0 +1,20 @@
+- [ ] Makefile
+- [ ] CARGAR MAPA
+	- RGB
+		- [ ] RGB Invalido (Negativos o mas de 255)
+		- [ ] Falta de colores para suelo o pared (F/C)
+	- Mapa invalido
+		- [ ] Sin persona
+		- [ ] El mapa esta rodeados de muros
+		- [ ] Tiene mas de 1 N/S/E/W 
+		- [ ] No puede haber lineas vacias
+	- Texturas invalidas
+		- [ ] Textura duplicada
+		- [ ] No existe la ruta de esa textura o la textura
+		- [ ] No acaba en .xpm la textura
+		- [ ] Falta 1 textura (SO/WE/EA/NO)
+		- [ ] No hay texturas
+	- [ ] Hay algo mas despues del mapa
+	- [ ] No acaba en extension .cub
+- [ ] Pintar Texturas
+- [ ] Implementar movimientos
