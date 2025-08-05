@@ -3,3 +3,5 @@ minilibx/
 *.o
 .vscode/
 cub3D
+libft/libft.a
+libft.a

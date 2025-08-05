@@ -1,4 +1,4 @@
-- [ ] Makefile
+- [X] Makefile
 - [ ] CARGAR MAPA
 	- RGB
 		- [ ] RGB Invalido (Negativos o mas de 255)

@@ -1,7 +1,7 @@
 #------------- COMPILER -------------
 
 COMPILER = cc
-CFLAGS = -Wextra -Wall -Werror 
+CFLAGS = -Wextra -Wall -Werror -g
 INCLUDE = -Iinclude -Ilibft -Iminilibx
 NAME = cub3D
 LIBRARY = libft/libft.a minilibx/libmlx.a
@@ -27,10 +27,10 @@ all: lbft mlx $(NAME)
 
 
 lbft:
-	@make -C libft
+	@make --no-print-directory -C libft
 
 mlx:
-	@make -C minilibx > /dev/null 2>&1
+	@make --no-print-directory -C minilibx > /dev/null 2>&1
 
 %.o: %.c
 	@len=$$(printf "%s" "$<" | wc -c); printf "$(IGreen)\rCompiling: $(UGreen)%*s$(NC) 🔨\033[K" "$$len" "$<"
@@ -41,12 +41,12 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BONUS)
-	@make -C libft clean
-	@make -C minilibx clean
+	@make --no-print-directory -C libft clean
+	@make --no-print-directory -C minilibx clean
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C libft fclean
+	@make --no-print-directory -C libft fclean
 
 re: clean all
 
