@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:45:38 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/08/05 12:57:55 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:04:26 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ bool	check_extension(char *file, char *ext)
 	return (false);
 }
 
+/*
+
+	ejemplo.cub = `
+	hola
+	final
+	`
+
+	*file = "hola\nfinal"
+
+	Hay que convertir file[] en file[][] separando por los '\n' para que quede algo asi
+
+	file[0][] = "hola"
+	file[1][] = "Final"
+
+	Usar ft_split(file, '\n');
+*/
 void	load_map(char *argv)
 {
 	int		fd;
