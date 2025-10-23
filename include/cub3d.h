@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:46:32 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 12:36:49 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/23 13:46:08 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct window
 
 typedef struct map
 {
+	char	**data;
 	int		fd;
 	int		width;
 	int		height;
@@ -66,6 +67,11 @@ typedef struct game
 	t_player	player;
 }				t_game;
 
-
+/////////////////////////////   INIT     ///////////////////////////////////////
 void	init_game(t_game *game);
+
+/////////////////////////////   PARSER     ///////////////////////////////////////
+int		parser(t_game *game, char **argv);
+
+
 #endif
