@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:46:32 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 13:46:08 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:00:12 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct map
 	int		fd;
 	int		width;
 	int		height;
-	char	**path;
+	char	*path;
 	int		lines;
 	int		end;
 }			t_map;
@@ -73,5 +73,10 @@ void	init_game(t_game *game);
 /////////////////////////////   PARSER     ///////////////////////////////////////
 int		parser(t_game *game, char **argv);
 
+//////////////////////////////   MAPA     ///////////////////////////////////////
+int		open_map(t_map *map, char *file);
 
+/////////////////////////////   EXIT     ////////////////////////////////////////
+void	bye_game(t_game *game, int code);
+void 	free_array(void **ar);
 #endif

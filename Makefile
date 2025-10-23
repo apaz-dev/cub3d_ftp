@@ -8,7 +8,7 @@ LIBRARY = libft/libft.a minilibx/libmlx.a
 
 #------------- SRC && OBJ -------------
 
-SRCS = src/main.c src/start.c
+SRCS = src/main.c src/start.c src/parser1.c src/mapa.c src/exit.c
 OBJ = $(SRCS:.c=.o)
 
 #------------- COLORS -------------
