@@ -3,86 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:45:38 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/08/06 15:21:04 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/23 12:02:34 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	check_extension(char *file, char *ext)
+void init_player(t_player *player)
 {
-	int	from = ft_strlen(file) - 4;
-	if (from < 0 || ft_strncmp(&file[from], ext, 4) != 0)
-		return (true);
-	return (false);
+	player->x = 0.0;
+	player->y = 0.0;
+	player->dir_x = 0.0;
+	player->dir_y = 0.0;
+	player->plane_x = 0.0;
+	player->plane_y = 0.0;
+	player->moved = 0;
+	player->rotated = 0;
+	player->move_x = 0;
+	player->move_y = 0;
 }
 
-char	*read_map_file(char *filename)
+void init_map(t_map *map)
 {
-	int		fd;
-	char	*file;
-	char	*tmp;
-	char	*old;
-
-	if (check_extension(filename, ".cub"))
-	{
-		printf("Error\nInvalid file extension\n");
-		exit(EXIT_FAILURE);
-	}
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file");
-		exit(EXIT_FAILURE);
-	}
-	file = malloc(1);
-	if (!file)
-		exit(EXIT_FAILURE);
-	file[0] = '\0';
-	tmp = get_next_line(fd);
-	while (tmp)
-	{
-		old = file;
-		file = ft_strjoin(file, tmp);
-		free(old);
-		free(tmp);
-		tmp = get_next_line(fd);
-	}
-	close(fd);
-	return (file);
+	map->fd = 0;
+	map->width = 0;
+	map->height = 0;
+	map->path = NULL;
+	map->lines = 0;
+	map->end = 0;
 }
 
-void	load_map(char *filename)
+void init_game(t_game *game)
 {
-	char	*file;
-	char	**map;
-	int		i;
-
-	file = read_map_file(filename);
-	map = ft_split(file, '\n');
-	i = 0;
-	while (map[i])
-	{
-		printf("Line %d: %s\n", i, map[i]);
-		i++;
-	}
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-	free(file);
+	game->window->mlx = NULL;
+	game->window->win = NULL;
+	game->window->width = WIN_HEIGHT;
+	game->window->height = WIN_WIDTH;
+	init_player(game->player);
+	game->map = NULL;
+	init_map(game->map);
 }
 
 int	main(int argc, char **argv)
 {
+	t_game	game;
+
 	if (argc != 2)
-	{
-		printf("la extension tiene que ser\n./cub3d <map_file.cub>\n");
-		return (1);
-	}
-	load_map(argv[1]);
+		return (ft_printf_fd(1, "La extension tiene que ser\n./cub3d <map_file.cub>\n"), 1);
+	init_game(&game);
+	(void)argv;
 	return (0);
 }

@@ -15,7 +15,7 @@ SRCS = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c \
        libft/ft_strnstr.c libft/ft_strtrim.c libft/ft_strrchr.c \
        libft/ft_substr.c libft/ft_tolower.c libft/ft_toupper.c \
        libft/ft_strmapi.c libft/ft_striteri.c libft/ft_putchar_fd.c \
-       libft/ft_putstr_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c \
+       libft/ft_putstr_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_format.c \
 	   printf/src/ft_printf.c printf/src/ft_prints_one.c printf/src/ft_prints_two.c \
        printf/src/utils.c \
 	   gnl/get_next_line.c gnl/get_next_line_utils.c 

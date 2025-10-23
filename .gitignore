@@ -5,3 +5,5 @@ minilibx/
 cub3D
 libft/libft.a
 libft.a
+cub3D.dSYM/
+*.dSYM/
