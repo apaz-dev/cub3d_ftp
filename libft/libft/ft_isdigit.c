@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apaz-pri <apaz-pri@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:12:05 by apaz-pri          #+#    #+#             */
-/*   Updated: 2024/09/20 18:46:16 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:59:17 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isdigit(int d)
 {
 	if (d >= '0' && d <= '9')
-		return (d);
+		return (1);
 	else
 		return (0);
 }

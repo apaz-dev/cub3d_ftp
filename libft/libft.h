@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:06:43 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 11:44:20 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:54:32 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_printf_fd(int fd, char const *format, ...);
 int		ft_putstr_fd(char *s, int fd);
+int		ft_isspace(int c);
 
 
 #endif
