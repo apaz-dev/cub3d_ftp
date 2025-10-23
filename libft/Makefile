@@ -1,7 +1,7 @@
 #------------- GLOBALS -------------
 
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -gdwarf-4
 INCLUDES = .
 
 #------------- SRC & OBJ -------------

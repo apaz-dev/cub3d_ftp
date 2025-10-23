@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:46:32 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 12:01:23 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:36:49 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,11 @@ typedef struct player
 
 typedef struct game
 {
-	t_window	*window;
-	t_map		*map;
-	t_player	*player;
+	t_window	window;
+	t_map		map;
+	t_player	player;
 }				t_game;
 
+
+void	init_game(t_game *game);
 #endif
