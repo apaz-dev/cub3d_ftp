@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:05:54 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 17:23:05 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:39:26 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void init_player(t_player *player)
 	player->move_y = 0;
 }
 
-static void init_map(t_map *map)
+static void init_filemap(t_filemap *map)
 {
 	map->fd = 0;
 	map->width = 0;
@@ -43,5 +43,5 @@ void init_game(t_game *game)
 	game->window.width = WIN_WIDTH;
 	game->window.height = WIN_HEIGHT;
 	init_player(&game->player);
-	init_map(&game->map);
+	init_filemap(&game->filemap);
 }

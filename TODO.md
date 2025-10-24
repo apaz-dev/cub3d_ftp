@@ -1,8 +1,8 @@
 - [X] Makefile
 - [ ] CARGAR MAPA
 	- RGB
-		- [ ] RGB Invalido (Negativos o mas de 255)
-		- [ ] Falta de colores para suelo o pared (F/C)
+		- [X] RGB Invalido (Negativos o mas de 255)
+		- [X] Falta de colores para suelo o pared (F/C)
 	- Mapa invalido
 		- [ ] Sin persona
 		- [ ] El mapa esta rodeados de muros

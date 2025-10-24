@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apaz-pri <apaz-pri@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:36:37 by apaz-pri          #+#    #+#             */
-/*   Updated: 2024/09/20 18:46:19 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/24 13:39:38 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int a)
 {
-	if (a >= 32 && a <= 126)
+	if (a > 32 && a <= 126)
 		return (1);
 	else
 		return (0);

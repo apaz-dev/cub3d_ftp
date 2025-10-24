@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_splitlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/04 12:45:38 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/24 12:00:58 by apaz-pri         ###   ########.fr       */
+/*   Created: 2025/10/24 12:45:29 by apaz-pri          #+#    #+#             */
+/*   Updated: 2025/10/24 12:46:09 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_splitlen(char **split_out)
 {
-	t_game	game;
+	size_t	out;
 
-	if (argc != 2)
-		return (ft_printf_fd(1, 
-			"La extension tiene que ser\n./cub3d <map_file.cub>\n"), 1);
-	init_game(&game);
-	if (parser(&game, argv) != 0)
-		return (1);
-	return (0);
+	if (!split_out)
+		return (0);
+	out = 0;
+	while (split_out[out])
+		out++;
+	return (out);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   filecub.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:06:34 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 18:04:11 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:44:49 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int get_lines(char *file)
 	return (lines);
 }
 
-static int load_map(t_map *map)
+static int load_map(t_filemap *map)
 {
 	char	*line;
 	size_t	i;
@@ -60,10 +60,10 @@ static int load_map(t_map *map)
 	return (0);
 }
 
-int	open_map(t_map *map, char *file)
+int	open_map(t_filemap *map, char *file)
 {
 	map->lines = get_lines(file);
-	map->path = file;
+	map->path = ft_strdup(file);
 	map->data = malloc((map->lines + 1) * sizeof(char *));
 	map->fd = open(file, O_RDONLY);
 	if (map->fd < 0)

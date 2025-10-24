@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:06:43 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/23 18:54:32 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/24 12:47:01 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	*ft_calloc(size_t count, size_t size);
 int		ft_printf_fd(int fd, char const *format, ...);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_isspace(int c);
+size_t	ft_splitlen(char **split_out);
 
 
 #endif
