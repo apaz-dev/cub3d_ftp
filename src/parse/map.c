@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:49:55 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/24 13:24:27 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/10/26 17:42:30 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 */
 int add_texture(t_texture *text, char *line, int s)
 {
-	if (line[s + 2] && (ft_isprint(line[s + 2]) && !ft_isdigit(line[s + 2])))
+	if (line[s + 2] && ft_isprint(line[s + 2]) && !ft_isdigit(line[s + 2]))
+		return (1);
+	else
 	{
 		if (line[s] == 'N' && line[s + 1] == 'O')
 			text->no = ft_strdup(&line[s + 3]);
@@ -31,8 +33,6 @@ int add_texture(t_texture *text, char *line, int s)
 		else
 			return (1);
 	}
-	else
-		return (1);
 	return (0);
 }
 
@@ -71,6 +71,8 @@ int *color_to_int(char *line)
 int add_color(t_texture *text, char *line, int s)
 {
 	if (line[s + 1] && (ft_isprint(line[s + 1]) && !ft_isdigit(line[s + 1])))
+		return (1);
+	else
 	{
 		if (line[s] == 'F')
 			text->f = color_to_int(line + s + 2);
@@ -79,8 +81,6 @@ int add_color(t_texture *text, char *line, int s)
 		else
 			return (1);
 	}
-	else
-		return (1);
 	return (0);
 }
 
@@ -98,7 +98,7 @@ static int what_is(t_game *game, int i, int j, char **map)
 	if (ft_isprint(map[i][j]) && !ft_isdigit(map[i][j]))
 	{
 		if (map[i][j + 1] && ft_isprint(map[i][j + 1]) 
-		&& !ft_isdigit(map[i][j + 1]))
+		&& !ft_isdigit(map[i][j]))
 		{
 			if (add_texture(&game->texture, map[i], j) == 1)
 				return (ft_printf_fd(1, "Error al añadir textura\n"), 1);
@@ -113,7 +113,7 @@ static int what_is(t_game *game, int i, int j, char **map)
 	}
 	else if (ft_isdigit(map[i][j]))
 	{
-		printf("Borrar mapa\n");
+		printf("Borrar mapa\n"); 
 		/*if (add_map(game, i, j, map) == 1)
 			return (ft_printf_fd(1, "Error al añadir mapa\n"), -42);*/
 		return (0);
