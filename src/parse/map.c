@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:49:55 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/11/12 12:59:43 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:54:34 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int count_map_height(char **map, int s, t_game *game)
 		i = 0;
 		while (ft_isospace(map[s][i]))
 			i++;
-		if (map[s][i] == '1')
+		if (map[s][i] != '1')
 			break;
 		s++;
 	}
@@ -150,28 +150,28 @@ static void wallea(t_game *game)
 	int j;
 
 	i = 0;
-	while (game->filemap.data[i])
+	while (game->filemap.map[i])
 	{
 		j = 0;
-		while (ft_isospace(game->filemap.data[i][j]))
+		while (ft_isospace(game->filemap.map[i][j]))
 			j++;
-		while (game->filemap.data[i][j])
+		while (game->filemap.map[i][j])
 		{
-			if (game->filemap.data[i][j] == ' ' 
-				&& j != (int)ft_strlen(game->filemap.data[i]) - 1)
-				game->filemap.data[i][j] = '1';
+			if (game->filemap.map[i][j] == ' ' 
+				&& j != (int)ft_strlen(game->filemap.map[i]) - 1)
+				game->filemap.map[i][j] = '1';
 		}
 		i++;
 	}
 }
 
-int	add_map(t_game *game, int i, char **map)
+int	add_map(t_game *game, int i, char **cfmap)
 {
-	game->filemap.height = count_map_height(map, i, game);
-	game->filemap.data = malloc(sizeof(char *) * (game->filemap.height + 1));
-	if (!game->filemap.data)
+	game->filemap.height = count_map_height(cfmap, i, game);
+	game->filemap.map = malloc(sizeof(char *) * (game->filemap.height + 1));
+	if (!game->filemap.map)
 		return (ERROH);
-	if (copy_map(game->filemap, i, map) == 1)
+	if (copy_map(game->filemap, i, game->filemap.map) == 1)
 		return (ERROH);
 	wallea(game);
 	return (GOOD);

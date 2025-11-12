@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:46:32 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/11/12 12:59:33 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:10:46 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct window
 typedef struct filemap
 {
 	char	**data; //malloc
+	char	**map;  //malloc
 	int		fd;
 	int		width;
 	int		height;
