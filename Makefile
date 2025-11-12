@@ -5,6 +5,7 @@ CFLAGS = -Wextra -Wall -Werror -g
 INCLUDE = -Iinclude -Ilibft -Iminilibx
 NAME = cub3D
 LIBRARY = libft/libft.a minilibx/libmlx.a
+FRAMEWORKS = -framework OpenGL -framework AppKit -framework CoreFoundation
 
 #------------- SRC && OBJ -------------
 
@@ -39,7 +40,7 @@ mlx:
 	@$(COMPILER) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 
 $(NAME): $(OBJ)
-	@$(COMPILER) $(CFLAGS) $(SRCS) $(INCLUDE) $(LIBRARY) -o $(NAME)
+	@$(COMPILER) $(CFLAGS) $(SRCS) $(INCLUDE) $(FRAMEWORKS) $(LIBRARY) -o $(NAME)
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BONUS)

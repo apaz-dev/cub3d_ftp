@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:49:55 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/11/12 12:47:39 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:59:43 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ static int copy_map(t_filemap fmap, int s, char **map)
 		j = 0;
 		map[i] = malloc(sizeof(char) * (fmap.width + 1));
 		if (!map[i])
-			return (1);
+			return (ERROH);
 		while (fmap.data[s][j] && fmap.data[s][j] != '\n')
 		{
 			map[i][j] = fmap.data[s][j];
@@ -140,6 +140,8 @@ static int copy_map(t_filemap fmap, int s, char **map)
 		i++;
 		s++;
 	}
+	map[i] = NULL;
+	return (GOOD);
 }
 
 static void wallea(t_game *game)
@@ -156,7 +158,7 @@ static void wallea(t_game *game)
 		while (game->filemap.data[i][j])
 		{
 			if (game->filemap.data[i][j] == ' ' 
-				&& j != ft_strlen(game->filemap.data[i]) - 1)
+				&& j != (int)ft_strlen(game->filemap.data[i]) - 1)
 				game->filemap.data[i][j] = '1';
 		}
 		i++;

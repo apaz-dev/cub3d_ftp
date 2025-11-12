@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:56:39 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/24 11:46:15 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:54:39 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void	bye_game(t_game *game, int code)
 	free_array((void **)game->filemap.data);
 	if (game->filemap.fd > 0)
 		close(game->filemap.fd);
+	if (game->window.mlx && game->window.win)
+		mlx_destroy_window(game->window.mlx, game->window.win);
 	exit(code);
 }

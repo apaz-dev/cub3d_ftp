@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 12:46:32 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/11/12 12:48:46 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:59:33 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 # define ERROH 1
-# define GOOD 2
+# define GOOD 0
 
 # include "libft.h"
 # include "mlx.h"
