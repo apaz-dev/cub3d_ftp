@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:49:55 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/26 17:42:30 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:47:39 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,97 @@ int add_color(t_texture *text, char *line, int s)
 	return (0);
 }
 
+int count_map_height(char **map, int s, t_game *game)
+{
+	int static_start;
+	int i;
+
+	static_start = s;
+	while (map[s])
+	{
+		i = 0;
+		while (ft_isospace(map[s][i]))
+			i++;
+		if (map[s][i] == '1')
+			break;
+		s++;
+	}
+	game->filemap.end = s;
+	return (s - static_start);
+}
+
+size_t find_biggest_len(t_filemap fmap, int s)
+{
+	size_t	max;
+
+	max = ft_strlen(fmap.data[s]);
+	while (fmap.data[s])
+	{
+		if (ft_strlen(fmap.data[s]) > max)
+			max = ft_strlen(fmap.data[s]);
+		s++;
+	}
+	return (max);
+}
+
+static int copy_map(t_filemap fmap, int s, char **map)
+{
+	int i;
+	int j;
+
+	fmap.width = find_biggest_len(fmap, s);
+	i = 0;
+	while (i < fmap.height)
+	{
+		j = 0;
+		map[i] = malloc(sizeof(char) * (fmap.width + 1));
+		if (!map[i])
+			return (1);
+		while (fmap.data[s][j] && fmap.data[s][j] != '\n')
+		{
+			map[i][j] = fmap.data[s][j];
+			j++;
+		}
+		while (j < fmap.width)
+			map[i][j++] = '\0';
+		i++;
+		s++;
+	}
+}
+
+static void wallea(t_game *game)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (game->filemap.data[i])
+	{
+		j = 0;
+		while (ft_isospace(game->filemap.data[i][j]))
+			j++;
+		while (game->filemap.data[i][j])
+		{
+			if (game->filemap.data[i][j] == ' ' 
+				&& j != ft_strlen(game->filemap.data[i]) - 1)
+				game->filemap.data[i][j] = '1';
+		}
+		i++;
+	}
+}
+
+int	add_map(t_game *game, int i, char **map)
+{
+	game->filemap.height = count_map_height(map, i, game);
+	game->filemap.data = malloc(sizeof(char *) * (game->filemap.height + 1));
+	if (!game->filemap.data)
+		return (ERROH);
+	if (copy_map(game->filemap, i, map) == 1)
+		return (ERROH);
+	wallea(game);
+	return (GOOD);
+}
+
 /*
 	Si el archivo empieza por caracter (no numero) y lo sigue otro caracter
 	(no numero) = TEXTURA
@@ -113,9 +204,8 @@ static int what_is(t_game *game, int i, int j, char **map)
 	}
 	else if (ft_isdigit(map[i][j]))
 	{
-		printf("Borrar mapa\n"); 
-		/*if (add_map(game, i, j, map) == 1)
-			return (ft_printf_fd(1, "Error al añadir mapa\n"), -42);*/
+		if (add_map(game, i, map) == 1)
+			return (ft_printf_fd(1, "Error al añadir mapa\n"), -42);
 		return (0);
 	}
 	return (99);

@@ -6,7 +6,7 @@
 /*   By: apaz-pri <apaz-pri@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:06:43 by apaz-pri          #+#    #+#             */
-/*   Updated: 2025/10/24 12:47:01 by apaz-pri         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:48:34 by apaz-pri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int		ft_printf_fd(int fd, char const *format, ...);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_isspace(int c);
 size_t	ft_splitlen(char **split_out);
-
+int		ft_isospace(int c);
 
 #endif

@@ -8,7 +8,7 @@ INCLUDES = .
 
 SRCS = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c \
        libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c  libft/ft_isspace.c \
-       libft/ft_isprint.c libft/ft_itoa.c libft/ft_memcmp.c \
+       libft/ft_isprint.c libft/ft_itoa.c libft/ft_memcmp.c libft/ft_isospace.c \
        libft/ft_memcpy.c libft/ft_memchr.c libft/ft_memmove.c libft/ft_memset.c \
        libft/ft_split.c libft/ft_strchr.c libft/ft_strdup.c libft/ft_strjoin.c \
        libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strncmp.c \
